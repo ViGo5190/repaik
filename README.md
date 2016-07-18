@@ -21,7 +21,7 @@ Example
 You need to order articles from reddit by domain and then group by domain to get statistic like `domain, articles count, score sum`:
 
 ```
-    const Repaik = require('repaik);
+    const Repaik = require('repaik');
     const _ = require('lodash');
 
     let reformatDataInputData = function(data){
