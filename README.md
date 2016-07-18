@@ -11,7 +11,9 @@ Example:
     const Repaik = require('repaik);
     let repaik = new Repaik();
     let res = repaik.request('http://www.reddit.com/r/javascript/.json');
-    res.getData() // return json
+    res.then((result) => {
+        result.getData() // return json
+    });
 ```
 
 Example
@@ -58,11 +60,12 @@ You need to order articles from reddit by domain and then group by domain to get
     let repaik = new Repaik();
     let res = repaik.request('http://www.reddit.com/r/javascript/.json');
 
-    res
-        .reformateData(reformatDataInputData)
-        .orderBy('domain')
-        .groupBy('domain')
-        .reformateData(reformatDataGroupedData)
-        .getData(); // get all you need
-
+    res.then((result) => {
+            result
+                    .reformateData(reformatDataInputData)
+                    .orderBy('domain')
+                    .groupBy('domain')
+                    .reformateData(reformatDataGroupedData)
+                    .getData(); // get all you need
+        });
 ```
