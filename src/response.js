@@ -8,21 +8,14 @@ class RepaikResponce {
     }
 
     orderBy(param) {
-        if (!_.includes(availableOrderParams, _.trim(param, '-'))) {
-            throw new Error('Wrong order by param');
-        }
-        this.data = _.sortBy(this.data, [_.trim(param, '-')]);
-        if (_.startsWith(param, '-')) {
-            this.data = _.reverse(this.data);
-        }
+        let paramTrimmed = [_.trim(param, '-')];
+        let orderDirection = (_.startsWith(param, '-')) ? 'desc' : 'asc';
+        this.data = _.orderBy(this.data, paramTrimmed, [orderDirection]);
 
         return this;
     }
 
     groupBy(param) {
-        if (!_.includes(availableGroupParams, param)) {
-            throw new Error('Wrong order by param');
-        }
         this.data = _.groupBy(this.data, param);
 
         return this;
@@ -30,7 +23,7 @@ class RepaikResponce {
 
     reformateData(reformateDataFunction) {
         this.data = reformateDataFunction(this.data);
-        
+
         return this;
     }
 
@@ -38,8 +31,5 @@ class RepaikResponce {
         return this.data;
     }
 }
-
-let availableOrderParams = ['created_utc', 'score', 'domain'];
-let availableGroupParams = ['domain'];
 
 module.exports = RepaikResponce;
