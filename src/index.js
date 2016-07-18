@@ -1,6 +1,6 @@
 'use strict';
 import rp from 'request-promise';
-import RepaikResponce from './response';
+import RepaikResponce from './responce';
 
 class Repaik {
     request(jsonUrl) {
@@ -14,7 +14,7 @@ class Repaik {
             })
             .catch((e) => {
                 throw new Error(e);
-            })
+            });
     }
 }
 
