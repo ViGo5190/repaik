@@ -54,9 +54,6 @@ describe('services/cache', function () {
 
         it('order by', function () {
             let res = new RepaikResponce(knowJson);
-            // console.log(JSON.stringify(
-            //     res.reformateData(reformatDataInputData).orderBy('domain').getData()
-            // ));
             assert.deepEqual(
                 res.reformateData(reformatDataInputData).orderBy('domain').getData(),
                 require('../tests_mocks/output3'));
@@ -64,9 +61,6 @@ describe('services/cache', function () {
 
         it('order by + reformat data', function () {
             let res = new RepaikResponce(knowJson);
-            // console.log(JSON.stringify(
-            //     res.reformateData(reformatDataInputData).orderBy('domain').reformateData(reformatDataOrderedData).getData()
-            // ));
             assert.deepEqual(
                 res.reformateData(reformatDataInputData).orderBy('domain').reformateData(reformatDataOrderedData).getData(),
                 require('../tests_mocks/output4'));
@@ -74,9 +68,6 @@ describe('services/cache', function () {
 
         it('order by + group by', function () {
             let res = new RepaikResponce(knowJson);
-            // console.log(JSON.stringify(
-            //     res.reformateData(reformatDataInputData).orderBy('domain').groupBy('domain').getData()
-            // ));
             assert.deepEqual(
                 res.reformateData(reformatDataInputData).orderBy('domain').groupBy('domain').getData(),
                 require('../tests_mocks/output5'));
@@ -84,14 +75,6 @@ describe('services/cache', function () {
 
         it('order by + group by', function () {
             let res = new RepaikResponce(knowJson);
-            // console.log(JSON.stringify(
-            //     res
-            //         .reformateData(reformatDataInputData)
-            //         .orderBy('domain')
-            //         .groupBy('domain')
-            //         .reformateData(reformatDataGroupedData)
-            //         .getData()
-            // ));
             assert.deepEqual(
                 res
                     .reformateData(reformatDataInputData)
